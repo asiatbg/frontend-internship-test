@@ -1,2 +1,69 @@
-/* Here goes your CSS */
 @import 'layout/main';
+h1 {
+    font-family: $primary-font-family;
+    text-align: center;
+    font-size: 24px;
+}
+.popup {
+    display: none;
+    position:absolute;
+    width: auto;
+    height: auto;
+    top:50%;
+    left:50%;
+    margin-left:-150px;
+    margin-top:-200px;
+    background-color: #FFFFFF;
+    padding: 20px 30px;
+    border-radius: 3px;
+}
+input {
+    box-sizing: border-box;
+    display: block;
+    width: 220px;
+    padding: 13px 20px;
+    margin: 5px 0 22px 0;
+    border: 1px solid rgba(0, 0, 0, 0.6);
+    font-size: 14px;
+    
+    &::placeholder{
+        color: #BBBBBB;
+    }
+    &[type=checkbox] {
+        width: auto;
+    }
+}
+label {
+    input {
+        display: inline;
+    }
+}
+
+.submitBtn {
+    box-sizing: border-box;
+    background-color: #111111;
+    color: white;
+    width: 220px;
+    border: none;
+    cursor: pointer;
+}
+
+.closeBtn {
+    font-family: $second-font-family;
+    background:#111;
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    border-radius: 50%;
+    padding: 0 7px 0 7px;
+    color: white;
+    font-size: 24px;
+    font-weight: 900;
+    text-align: center;
+    vertical-align: middle;
+    &:hover, &:focus {
+        color: #ddd;
+        text-decoration: none;
+        cursor: pointer;
+    }
+}

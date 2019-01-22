@@ -1,7 +1,9 @@
+$primary-font-family:'Lobster', cursive;
+$second-font-family: 'Lato', sans-serif;
 /* Main styles */
 html,
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: $second-font-family;
   margin: 0;
   padding: 0;
 }
