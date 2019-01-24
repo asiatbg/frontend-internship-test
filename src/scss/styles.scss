@@ -15,7 +15,7 @@ h1 {
     left:50%;
     margin-left:-145px;
     margin-top:-200px;
-    background-color: #FFFFFF;
+    background-color: #FFF;
     padding: 20px 30px;
     border-radius: 3px;
     animation: showOpacity 2s;
@@ -46,15 +46,15 @@ input {
     position: relative;
 
     &::placeholder {
-        color: #BBBBBB;
+        color: #BBB;
     }
 
     &.tooltip {
-        
+
         +.tooltipText{
             visibility: hidden;
             width: calc(100% - 70px);
-            background-color: #000;
+            background-color: rgba(17,17,17, 0.95);
             color: #fff;
             text-align: center;
             padding: 5px 5px;
@@ -73,7 +73,7 @@ input {
                 margin-left: -10px;
                 border-width: 7px;
                 border-style: solid;
-                border-color: transparent transparent #000 transparent ;
+                border-color: transparent transparent rgba(17,17,17, 0.95) transparent;
             }
         }
 
@@ -91,7 +91,7 @@ input {
         + label {
             position: relative;
             padding: 0 0 0 1.4rem;
-            color: #000000;
+            color: #000;
             cursor: pointer;
 
             &:before {
@@ -101,7 +101,7 @@ input {
                 left: 0;
                 width: 1rem;
                 height: 1rem;
-                border: 0.7px solid #666666;
+                border: 0.7px solid #666;
             }
 
             &:after {
@@ -111,8 +111,8 @@ input {
                 width: 0.3rem;
                 height: 0.7rem;
                 opacity: 0;
-                border-bottom: 2.5px solid #000000;
-                border-right: 2.5px solid #000000;
+                border-bottom: 2.5px solid #000;
+                border-right: 2.5px solid #000;
                 transform: rotate(45deg);
             }
         }
@@ -128,7 +128,7 @@ input {
     }
 
     &[type=submit] {
-        background-color: #111111;
+        background-color: #111;
         color: white;
         border: none;
         cursor: pointer;
@@ -155,7 +155,7 @@ input {
     vertical-align: middle;
 
     &:hover, &:focus {
-        color: #dddddd;
+        color: #ddd;
         text-decoration: none;
         cursor: pointer;
     }
@@ -169,6 +169,8 @@ input {
     color: red !important;
 }
 
-
-  
-  
+.successMessage {
+    display: none;
+    font-size: 54px;
+    font-family: $primary-font-family;
+}

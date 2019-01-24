@@ -5,6 +5,7 @@ const password = document.forms['loginForm']['password'];
 const email = document.forms['loginForm']['email'];
 const checkboxForm = document.getElementById('checkboxForm');
 const loginForm = document.getElementById('loginForm');
+const successMessage = document.getElementById('successMessage');
 
 
 
@@ -76,9 +77,15 @@ loginForm.addEventListener('submit', (e) => {
     }
     if (!areInputsValid) {
         return false;
+    } else {
+        setTimeout(() => {
+            popupContainer.style.display = 'none';
+            successMessage.style.display = 'block';
+            return true;
+        }, 3000);
+
     }
 
-    return true;
 });
 
 const passwordValidation = (password) => {
