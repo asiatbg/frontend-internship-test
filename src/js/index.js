@@ -16,7 +16,6 @@ showPopupForm.addEventListener('click', () => {
 
 closeBtn.addEventListener('click', () => {
     removeTooltips();
-
     popupContainer.style.display = "none";
     showPopupForm.style.display = "block";
 });
@@ -49,26 +48,22 @@ loginForm.addEventListener('submit', (e) => {
     if (!password.value) {
         password.focus();
         areInputsValid = false;
-
         createTooltip(password, "Password cannot be blank!");
 
     } else if (!passwordValidation(password.value)) {
         password.focus();
         areInputsValid = false;
-
         createTooltip(password, "Password must contain at least \
             1 lower case letter, 1 special character, 1 upper case letter, 1 numeric character and be at least 8 characters in length.");
     }
     if (!email.value) {
         email.focus();
         areInputsValid = false;
-
         createTooltip(email, "Email cannot be blank!");
 
     } else if (!emailValidation(email.value)) {
         email.focus();
         areInputsValid = false;
-
         createTooltip(email, "Email format is invalid!");
     }
     if (!checkboxForm.checked) {
@@ -107,6 +102,13 @@ const createTooltip = (element, tooltipText) => {
     element.parentNode.insertBefore(newSpan, element.nextSibling);
 }
 
+const removeTooltips = () => {
+    let tooltips = document.getElementsByClassName('tooltipText');
+    if (tooltips.length !== 0) {
+        removeAdditionalClassAndElement(tooltips);
+    }
+}
+
 const removeAdditionalClassAndElement = (tooltipText) => {
     for (let index = tooltipText.length - 1; index >= 0; index--) {
         tooltipText[index].parentNode.removeChild(tooltipText[index]);
@@ -115,11 +117,4 @@ const removeAdditionalClassAndElement = (tooltipText) => {
     password.classList.remove('errorValidationInput', 'tooltip');
     checkboxForm.nextElementSibling.classList.remove('errorValidationCheckbox');
 
-}
-
-const removeTooltips = () => {
-    let tooltips = document.getElementsByClassName('tooltipText');
-    if (tooltips.length !== 0) {
-        removeAdditionalClassAndElement(tooltips);
-    }
 }
