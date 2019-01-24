@@ -1,9 +1,11 @@
 @import 'layout/main';
+
 h1 {
     font-family: $primary-font-family;
     text-align: center;
-    font-size: 24px;
+    font-size: 28px;
 }
+
 .popup {
     display: none;
     position:absolute;
@@ -11,41 +13,131 @@ h1 {
     height: auto;
     top:50%;
     left:50%;
-    margin-left:-150px;
+    margin-left:-145px;
     margin-top:-200px;
     background-color: #FFFFFF;
     padding: 20px 30px;
     border-radius: 3px;
+    animation: showOpacity 2s;
 }
-input {
-    box-sizing: border-box;
-    display: block;
-    width: 220px;
-    padding: 13px 20px;
-    margin: 5px 0 22px 0;
-    border: 1px solid rgba(0, 0, 0, 0.6);
-    font-size: 14px;
-    
-    &::placeholder{
-        color: #BBBBBB;
+
+@keyframes showOpacity{
+    100%{
+        display: block;
+        opacity:1
     }
-    &[type=checkbox] {
-        width: auto;
+    1% {
+        display: block;
+        opacity: 0;
     }
-}
-label {
-    input {
-        display: inline;
+    0%{
+        display: none;
+        opacity:0;
     }
 }
 
-.submitBtn {
+input {
     box-sizing: border-box;
-    background-color: #111111;
-    color: white;
-    width: 220px;
-    border: none;
-    cursor: pointer;
+    display: block;
+    width: 100%;
+    padding: 13px 20px;
+    margin: 15px 0;
+    font-size: 13px;
+    position: relative;
+
+    &::placeholder {
+        color: #BBBBBB;
+    }
+
+    &.tooltip {
+        
+        +.tooltipText{
+            visibility: hidden;
+            width: calc(100% - 70px);
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 5px 5px;
+            border-radius: 6px;
+            position: absolute;
+            z-index: 1;
+            margin-top: -8px;
+            opacity: 0;
+            transition: opacity 0.3s;
+    
+            &:after{
+                content: "";
+                position: absolute;
+                bottom: 100%;
+                left: 50%;
+                margin-left: -10px;
+                border-width: 7px;
+                border-style: solid;
+                border-color: transparent transparent #000 transparent ;
+            }
+        }
+
+        &:hover {
+            +.tooltipText{
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+      }
+
+    &[type=checkbox] {
+        display: none;
+
+        + label {
+            position: relative;
+            padding: 0 0 0 1.4rem;
+            color: #000000;
+            cursor: pointer;
+
+            &:before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 1rem;
+                height: 1rem;
+                border: 0.7px solid #666666;
+            }
+
+            &:after {
+                position: absolute;
+                left: 0.35rem;
+                top: 0.05rem;
+                width: 0.3rem;
+                height: 0.7rem;
+                opacity: 0;
+                border-bottom: 2.5px solid #000000;
+                border-right: 2.5px solid #000000;
+                transform: rotate(45deg);
+            }
+        }
+
+        &:checked {
+            + label {
+                &:after {
+                    content: "";
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    &[type=submit] {
+        background-color: #111111;
+        color: white;
+        border: none;
+        cursor: pointer;
+
+        &:hover, &:focus {
+            background-color: #f88080;
+        }
+    }
+    
 }
 
 .closeBtn {
@@ -61,9 +153,22 @@ label {
     font-weight: 900;
     text-align: center;
     vertical-align: middle;
+
     &:hover, &:focus {
-        color: #ddd;
+        color: #dddddd;
         text-decoration: none;
         cursor: pointer;
     }
 }
+
+.errorValidationInput {
+    border: 2px solid red;
+}
+
+.errorValidationCheckbox {
+    color: red !important;
+}
+
+
+  
+  

@@ -19,16 +19,19 @@
     <!-- <p>Thank you!</p> -->
   </section>
   <div class="popup" id="popupContainer">
-    <span class="closeBtn" id="closeBtn">&times;</span>
-    <h1>Login</h1>
+    <section>
+      <span class="closeBtn" id="closeBtn">&times;</span>
+      <h1>Login</h1>
+      <form action="#" name="loginForm" id="loginForm" novalidate>
+        <input type="email" name="email" placeholder="E-mail" id="emailInput" autocomplete="email">
+        <input type="password" name="password" placeholder="Password" id="passwordInput" autocomplete="current-password">
 
-    <form action="#">
-      <input type="email" name="email" placeholder="E-mail" id="emailInput">
-      <input type="password" name="password" placeholder="Password" id="passwordInput">
-      <label for="checkboxForm"><input type="checkbox" name="checkboxForm" id="checkboxForm">
-        I agree to term &amp; conditions.</label>
-      <input type="submit" value="SUBMIT" class="submitBtn">
-    </form>
+        <input type="checkbox" name="checkboxForm" id="checkboxForm" value="false">
+        <label for="checkboxForm" id="checkboxFormLabel">I agree to term &amp; conditions.</label>
+        <input type="submit" value="SUBMIT" class="submitBtn" id="submitBtn">
+      </form>
+    </section>
+
   </div>
   <script src="js/index.js" charset="utf-8"></script>
 </body>
